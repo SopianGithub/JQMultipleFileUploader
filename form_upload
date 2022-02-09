@@ -1,0 +1,109 @@
+<form class="form-horizontal form-new-ba" id="fileUploadNPWP" method="POST" enctype="multipart/form-data">
+			<div>
+				<label for="npwp" class="col-sm-3">Upload NPWP</label>
+				<div class="col-sm-9">
+					<div class="well row fileupload-buttonbar">
+			            <div class="col-lg-6">
+			                <!-- The fileinput-button span is used to style the file input field as button -->
+			                <span class="btn btn-success fileinput-button">
+			                    <i class="glyphicon glyphicon-file"></i>
+			                    <input type="file" name="files[]" class="form-control" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, image/jpg" >
+			                </span>
+			                <br/>
+			                <span><b><i>Diupload dalam format PDF atau JPG</i></b></span>
+			                <span class="fileupload-process-file_npwp"></span>
+		   	 			</div>
+		   	 			<div class="col-lg-5 fileupload-progress">
+			                <!-- The global progress bar -->
+			                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+			                    <div class="progress-bar progress-bar-success-file_npwp" style="width:0%;"></div>
+			                </div>
+			                <!-- The extended global progress state -->
+			                <div class="progress-extended-file_npwp">&nbsp;</div>
+			            </div>
+			        </div>
+			        <div id="file_npwp_list"></div>
+
+				</div>
+			</div>
+		</form>
+
+		<form class="form-horizontal form-new-ba" id="fileUploadSPHB" method="POST" enctype="multipart/form-data">
+			<div>
+				<label for="sphb" class="col-sm-3">Upload Dok SPHB
+				<span class="has-error help-block">(Surat Penjelasan Hubungan Bisnis)</span>
+				</label>
+				<div class="col-sm-9">
+					<div class="well row fileupload-buttonbar">
+			            <div class="col-lg-6">
+			                <!-- The fileinput-button span is used to style the file input field as button -->
+			                <span class="btn btn-success fileinput-button">
+			                    <i class="glyphicon glyphicon-file"></i>
+			                    <input type="file" name="files[]" class="form-control" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" >
+			                </span>
+			                <br/>
+			                <span><b><i>Diupload dalam format PDF</i></b></span>
+			                <span class="fileupload-process-file_sphb"></span>
+		   	 			</div>
+		   	 			<div class="col-lg-5 fileupload-progress">
+			                <!-- The global progress bar -->
+			                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+			                    <div class="progress-bar progress-bar-success-file_sphb" style="width:0%;"></div>
+			                </div>
+			                <!-- The extended global progress state -->
+			                <div class="progress-extended-file_sphb">&nbsp;</div>
+			            </div>
+			        </div>
+
+			        <div id="file_sphb_list"></div>
+
+				</div>
+			</div>
+		</form>
+
+		<form class="form-horizontal form-new-ba" id="fileUploadOther" method="POST" enctype="multipart/form-data">
+			<div>
+				<label for="others" class="col-sm-3">Upload Dok Pendukung <span><em>(Optional)</em></span></label>
+				<div class="col-sm-9">
+					<div class="well row fileupload-buttonbar">
+			            <div class="col-lg-6">
+			                <!-- The fileinput-button span is used to style the file input field as button -->
+			                <span class="btn btn-success fileinput-button">
+			                    <i class="glyphicon glyphicon-plus"></i>
+	                    		<span>Add files...</span>
+			                    <input type="file" name="files[]" class="form-control" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" \>
+			                </span>
+			                <br/>
+			                <span><b><i>Diupload dalam format PDF</i></b></span>
+			                <span class="fileupload-process-file_other"></span>
+		   	 			</div>
+		   	 			<div class="col-lg-5 fileupload-progress-file_other">
+			                <!-- The global progress bar -->
+			                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+			                    <div class="progress-bar progress-bar-success-file_other" style="width:0%;"></div>
+			                </div>
+			                <!-- The extended global progress state -->
+			                <div class="progress-extended-file_other">&nbsp;</div>
+			            </div>
+			        </div>
+
+			        <div id="file_other_list"></div>
+
+				</div>
+			</div>
+		</form>
+
+
+<script type="text/javascript">
+  setFileNPWP = () => {
+		let fileNPWPClass = new SingleUpload(`fileUploadNPWP`, `file_npwp`, `${$("#id_project").val()}_NPWP_`);
+	}
+
+	setFileSPHB = () => {
+		let fileSPHBClass = new SingleUpload(`fileUploadSPHB`, `file_sphb`, `${$("#id_project").val()}_SPHB_`);
+	}
+
+	setFileOth = () => {
+		let fileOth = new MultiDoc(`fileUploadOther`, `file_other`, `${$("#id_project").val()}_OTHER_`);
+	}
+</script>
